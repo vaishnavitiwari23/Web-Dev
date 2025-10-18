@@ -1,60 +1,170 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experiment 2</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DailyScope News — Experiment 2</title>
+  <meta name="description" content="Sample news website page with embedded YouTube video, hyperlinks, navigation and multimedia for Experiment 2.">
+  <style>
+    /* Simple responsive layout and styling */
+    :root{--accent:#d6336c;--muted:#666;--bg:#f7f7f9}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:var(--bg);color:#111;line-height:1.5}
+    header{background:#fff;border-bottom:1px solid #e6e6e9;padding:12px 20px;position:sticky;top:0;z-index:10}
+    .container{max-width:960px;margin:20px auto;padding:0 16px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand h1{font-size:20px;margin:0;color:var(--accent)}
+    nav ul{list-style:none;padding:0;margin:8px 0 0;display:flex;gap:12px}
+    nav a{color:#111;text-decoration:none;font-weight:600}
+    .hero{display:grid;grid-template-columns:1fr;gap:16px;margin-top:18px}
+    @media(min-width:820px){.hero{grid-template-columns:2fr 1fr}}
+    .card{background:#fff;border-radius:10px;box-shadow:0 1px 2px rgba(15,15,15,0.03);overflow:hidden}
+    .card img{width:100%;height:auto;display:block}
+    .card .meta{padding:12px}
+    .article-list{display:grid;gap:12px}
+    .article{display:flex;gap:12px;padding:12px;border-bottom:1px solid #f0f0f0}
+    .article img{width:140px;height:90px;object-fit:cover;border-radius:6px}
+    .article h3{margin:0;font-size:16px}
+    .article p{margin:6px 0 0;color:var(--muted);font-size:14px}
+    .sidebar .widget{padding:12px}
+    footer{padding:18px 0;color:var(--muted);text-align:center}
+    .multimedia{display:grid;gap:12px}
+    .links a{display:inline-block;margin-right:8px;margin-bottom:6px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
 </head>
-
 <body>
-    <nav>
-        <center>
-            <h1>Global Daily News</h1>
-        </center>
-        <center>
-            <p>Your Trusted Source for Latest Updates</p>
-        </center>
-        <hr>
-        <center>
-            <a href="#">World</a>
-            <span>|</span>
-            <a href="#">Sports</a>
-            <span>|</span>
-            <a href="#">Entertainment</a>
-            <span>|</span>
-            <a href="#">Podcast</a>
-            <span>|</span>
-            <a href="#">Contact</a>
-        </center>
-        <hr>
-    </nav>
-    <p>World News</p>
-    <p>Today's top headline: Global leaders meet to discuss climate changes initiatives.</p>
-    <img src="bbcnews.jpg" alt="bbcnews" height="314 px"><br>
-    <a href="#">Read More on BBC</a>
+  <header>
+    <div class="container brand">
+      <img src="https://via.placeholder.com/48" alt="DailyScope logo" width="48" height="48">
+      <div>
+        <h1>DailyScope</h1>
+        <nav aria-label="Main navigation">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#world">World</a></li>
+            <li><a href="#tech">Tech</a></li>
+            <li><a href="#sports">Sports</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>  <main class="container" id="home">
+    <section class="hero">
+      <!-- Main story -->
+      <article class="card">
+        <img src="https://via.placeholder.com/960x400" alt="Main story image: city skyline">
+        <div class="meta">
+          <h2>City Adopts New Green Transit Plan</h2>
+          <p style="color:var(--muted);margin:6px 0 12px">By A. Reporter • Oct 18, 2025</p>
+          <p>The municipal government today unveiled a five-year green transit initiative that will expand bus rapid transit lanes, increase electric vehicle charging infrastructure, and subsidise bike lanes across the city.</p>
+          <p style="margin-top:12px"><a href="#fullstory" aria-describedby="fullstory-desc">Read full story →</a></p>
+          <p id="fullstory-desc" class="sr-only">Opens the full article on this page (anchor link)</p>
+        </div>
+      </article><!-- Sidebar with multimedia -->
+  <aside class="sidebar">
+    <div class="card widget multimedia">
+      <div class="meta">
+        <h3>Top Video — LIVE: Transit Plan Explained</h3>
+        <!-- Embedded YouTube Video -->
+        <div style="position:relative;padding-top:56.25%">
+          <iframe title="Transit Plan Explainer" src="https://www.youtube.com/embed/dQw4w9WgXcQ" style="position:absolute;inset:0;width:100%;height:100%;border:0" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p style="color:var(--muted);font-size:14px;margin-top:8px">Watch the official press briefing and an animated breakdown.</p>
+      </div>
 
-    <h1>Sports Update</h1>
-    <p>Highlights of Yesterday's football match with thrilling last-minute goals!</p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/aqz-KE-bpKQ?si=kwgvKT8C5hCCQLKj"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-    </iframe>
-    <hr>
-    <h1>Entertainment Buzz</h1>
-    <p>New movie tralier released today. Fans are Excited!</p>
-    <video height="314px" controls>
-        <source
-            src="Thamma Official Trailer  Ayushmann, Rashmika, Paresh, Nawazuddin  In Cinemas This Diwali- 21st Oct - Maddock Films (720p, h264).mp4">
-    </video>
-    <hr>
+      <div class="meta">
+        <h4>Audio Brief</h4>
+        <!-- Audio element (podcast snippet) -->
+        <audio controls preload="none" aria-label="Press briefing audio snippet">
+          <source src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/audio/sample.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
 
-    <h1>News Podcast</h1>
-    <p>Listen to today's top heaedlines:</p>
-    <audio controls>
-        <source src="Wake Up to the Most Beautiful Morning Bird Songs  Relaxing Nature Sounds for Sleep, Focus.mp3"
-            type="audio/mp3">
-    </audio>
-</body>
+      <div class="meta">
+        <h4>Local News Clip</h4>
+        <!-- Video element (MP4) -->
+        <video controls width="100%" preload="metadata" poster="https://via.placeholder.com/800x450">
+          <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+    </div>
+
+    <div style="height:12px"></div>
+
+    <div class="card widget">
+      <div class="meta">
+        <h4>Quick Links</h4>
+        <p class="links">
+          <a href="#world">World</a>
+          <a href="#tech">Tech</a>
+          <a href="#sports">Sports</a>
+          <a href="https://example.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe</a>
+        </p>
+      </div>
+    </div>
+  </aside>
+</section>
+
+<!-- Latest stories list -->
+<section style="margin-top:18px">
+  <h2>Latest Stories</h2>
+  <div class="card article-list">
+    <a class="article" href="https://example.com/story1" target="_blank" rel="noopener noreferrer">
+      <img src="https://via.placeholder.com/280x180" alt="Electric buses rolling out">
+      <div>
+        <h3>Electric Buses Rolling Out Downtown</h3>
+        <p>City starts first phase of electric bus introduction with 50 buses on route.</p>
+      </div>
+    </a>
+
+    <a class="article" href="#tech" >
+      <img src="https://via.placeholder.com/280x180" alt="Tech summit photo">
+      <div>
+        <h3>Tech Summit 2025: Startups to Watch</h3>
+        <p>Highlights from the annual tech summit, featuring AI startups and green tech funds.</p>
+      </div>
+    </a>
+
+    <a class="article" href="#sports">
+      <img src="https://via.placeholder.com/280x180" alt="Local team celebration">
+      <div>
+        <h3>Local Team Wins Championship</h3>
+        <p>An underdog victory sparks city-wide celebrations and a parade announcement.</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- Hyperlinks & navigation demonstration -->
+<section id="tech" style="margin-top:18px">
+  <h2>Technology</h2>
+  <p class="card" style="padding:12px">Read more on our <a href="#" onclick="alert('This would navigate to the Tech section in a full site');return false;">Technology hub</a> or go to partner coverage at <a href="https://www.bbc.com" target="_blank" rel="noopener noreferrer">BBC</a>.</p>
+</section>
+
+<!-- Anchor full story for accessibility -->
+<section id="fullstory" style="margin-top:18px">
+  <article class="card" style="padding:12px">
+    <h2>Full Story — City Adopts New Green Transit Plan</h2>
+    <p style="color:var(--muted);">Updated: Oct 18, 2025</p>
+    <p>The full policy document will be open for public comment next month. Key features include priority bus lanes, new EV incentives, and urban tree corridors along major routes. Citizens will be able to review the policy and leave comments through the municipal portal.</p>
+    <p>For related coverage: <a href="#home">Back to Home</a> • <a href="#contact">Contact the newsroom</a></p>
+  </article>
+</section>
+
+<section id="contact" style="margin-top:18px">
+  <h2>Contact</h2>
+  <p class="card" style="padding:12px">Email: <a href="mailto:editor@dailyscope.example">editor@dailyscope.example</a> • Phone: <a href="tel:+911234567890">+91 12345 67890</a></p>
+</section>
+
+  </main>  <footer>
+    <div class="container">
+      <p>&copy; 2025 DailyScope. All rights reserved. <a href="#">Privacy</a> • <a href="#">Terms</a></p>
+    </div>
+  </footer></body>
 </html>
